@@ -1,0 +1,85 @@
+﻿<div itemprop="articleBody">
+
+<title>我的博客</title>
+
+<p>如何右键添加管理员取得所有权</p>
+
+<p>代码：</p>
+
+<p>======================================================</p>
+
+<p>Windows Registry Editor Version 5.00</p>
+
+<p>[HKEY_CLASSES_ROOT\*\shell\runas]
+
+<p>@="管理员取得所有权"
+
+<p>"icon"="%windir%\\System32\\imageres.dll,79"
+
+<p>"NoWorkingDirectory"=""
+
+<p>[HKEY_CLASSES_ROOT\*\shell\runas\command]
+
+<p>@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+<p>"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+<p>[HKEY_CLASSES_ROOT\exefile\shell\runas2]
+
+<p>@="管理员取得所有权"
+
+<p>"icon"="%windir%\\System32\\imageres.dll,79"
+
+<p>"NoWorkingDirectory"=""
+
+<p>[HKEY_CLASSES_ROOT\exefile\shell\runas2\command]
+
+<p>@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+<p>"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+<p>[HKEY_CLASSES_ROOT\Directory\shell\runas]
+
+<p>@="管理员取得所有权"
+
+<p>"icon"="%windir%\\System32\\imageres.dll,79"
+
+<p>"NoWorkingDirectory"=""
+
+<p>[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
+
+<p>@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+
+<p>"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"</p>
+
+<p>======================================================</p>
+
+<p>用完了怎么删除</p>
+
+<p>删除代码：</p>
+
+<p>======================================================</p>
+
+<p>Windows Registry Editor Version 5.00
+
+<p>[-HKEY_CLASSES_ROOT\*\shell\runas]
+
+<p>[-HKEY_CLASSES_ROOT\*\shell\runas\command]
+
+<p>[-HKEY_CLASSES_ROOT\exefile\shell\runas2]
+
+<p>[-HKEY_CLASSES_ROOT\exefile\shell\runas2\command]
+
+<p>[-HKEY_CLASSES_ROOT\Directory\shell\runas]
+
+<p>[-HKEY_CLASSES_ROOT\Directory\shell\runas\command]   </p>
+
+<p>======================================================</p>
+
+<p>代码可复制</p>
+
+<p>前一条：<a href="https://meta.appinn.net/t/topic/8500">seewo镜像汇总</a></p>
+
+
+  </body>
+</html>
